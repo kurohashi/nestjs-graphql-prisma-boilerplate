@@ -1,0 +1,39 @@
+scalar Date
+scalar Direction
+
+type User {
+  # Example field (placeholder)
+  id: Int!
+  name: String
+  age: Int
+  createdAt: Date
+  updatedAt: Date
+}
+
+input CreateUserInput {
+  # Example field (placeholder)
+  name: String
+  age: Int
+  createdAt: Date
+  updatedAt: Date
+}
+
+input UpdateUserInput {
+  id: Int!
+}
+
+input OrderBy {
+  field: String
+  dir: Direction
+}
+
+type Query {
+  users(orderBy: OrderBy): [User]!
+  user(id: Int!): User
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User
+}
